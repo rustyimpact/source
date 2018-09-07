@@ -1021,7 +1021,7 @@
 
                     var quserid = queue.id[i];
                     var qusername = alertBot.userUtilities.lookupUserName(quserid);
-                    API.chatLog('at position' + i + ' is ' qusername + '.');
+                    API.chatLog('at position' + i + ' is ' + qusername + '.');
                   }
 
                     var blacklistSkip = setTimeout(function() {
