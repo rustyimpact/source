@@ -1019,9 +1019,9 @@
 
                 for (var i = 0; i < 5; i++) {
 
-                    var quserid = queue.id[i];
-                    var qusername = alertBot.userUtilities.lookupUserName(quserid);
-                    API.chatLog(qusername);
+                    //var quserid = queue.id[i];
+                    //var qusername = alertBot.userUtilities.lookupUserName(quserid);
+                    API.chatLog(i);
                   }
 
                     var blacklistSkip = setTimeout(function() {
