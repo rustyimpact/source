@@ -318,7 +318,7 @@
   			intervalMessages: [],
   			messageInterval: 11,
   			songstats: false,
-  			commandLiteral: '!',
+  			commandLiteral: '?',
   			blacklists: {
   				BANNED: 'https://rawgit.com/HarryMcKenzie/source/master/blacklists/BANNEDlist.json'
   						}
@@ -1015,13 +1015,13 @@
 
                 var queuelength = queue.length;
                 var newusers = 0;
-                API.chatLog(queuelenth);
+                API.chatLog('The queue is ' + queuelength + ' people long.');
 
                 for (var i = 0; i < 5; i++) {
 
-                    //var quserid = queue.id[i];
-                    //var qusername = alertBot.userUtilities.lookupUserName(quserid);
-                    API.chatLog(i);
+                    var quserid = queue.id[i];
+                    var qusername = alertBot.userUtilities.lookupUserName(quserid);
+                    API.chatLog('at position' + i + ' is ' qusername + '.');
                   }
 
                     var blacklistSkip = setTimeout(function() {
