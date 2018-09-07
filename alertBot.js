@@ -1017,11 +1017,11 @@
                 var newusers = 0;
                 API.chatLog('The queue is ' + queuelength + ' people long.');
 
-                for (var i = 0; i < 5; i++) {
+                for (var i = 0; i < queuelength; i++) {
 
-                    var quserid = queue.id[i];
+                    var quserid = queue[i].id;
                     var qusername = alertBot.userUtilities.lookupUserName(quserid);
-                    API.chatLog('at position' + i + ' is ' + qusername + '.');
+                    API.chatLog('At position' + i + ' is ' + qusername + '.');
                   }
 
                     var blacklistSkip = setTimeout(function() {
