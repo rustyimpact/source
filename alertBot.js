@@ -1020,8 +1020,8 @@
                 for (var i = 0; i < queuelength; i++) {
 
                     var quserid = queue[i].id;
-                    var qusername = alertBot.userUtilities.lookupUserName(quserid);
-                    API.chatLog('At position' + i + ' is ' + qusername + '.');
+                    //var qusername = alertBot.userUtilities.lookupUserName(quserid);
+                    API.chatLog('At position' + i + ' is ' + quserid + '.');
                   }
 
                     var blacklistSkip = setTimeout(function() {
