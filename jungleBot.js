@@ -2071,7 +2071,20 @@
                       if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                       if (!jungleBot.commands.executable(this.rank, chat)) return void (0);
                       else {
-                        API.sendChat("/woot");
+                        $.ajax({
+                            url: '/_/votes',
+                            type: 'POST',
+                            data: JSON.stringify({
+                                direction: 1,
+                                historyID: _.find(require.s.contexts._.defined, (m) => m && m.updateElapsedBind).get('historyID'),
+                            }),
+                            error: function(err) {
+                                console.error(err);
+                            },
+                            dataType: 'json',
+                            contentType: 'application/json'
+                        });
+
                         API.sendChat(":MrDestructoid: :bttvClap:");
                       }
                     }
