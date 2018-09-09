@@ -435,23 +435,39 @@
         userUtilities: {
 
           //START CUSTOM USERUTILITIES FUNCTIONS
-          getMvpCount: function(user) {
+          getMVPCount: function(user) {
               return user.mvpCount;
           },
 
-          voteMvp: function(user) {
+          voteMVP: function(user) {
+            if (isNaN(user.mvpCount)) user.mvpCount = 0;
               user.mvpCount++;
           },
 
-          getMvpVoted: function(user) {
+          getMVPVoted: function(user) {
               return user.mvpVoted;
           },
-          setMvpVoted: function(user) {
+          setMVPVoted: function(user) {
               user.mvpVoted = Date.now();
           },
-          resetMvpVoted: function(user) {
+          resetMVPVoted: function(user) {
               user.mvpVoted = false;
           },
+
+
+          //Reset all the mvp votings
+          resetMVPALL: function(name) {
+                      var id;
+                      var users = jungleBot.room.users;
+                      var len = users.length;
+                      for (var i = 0; i < len; ++i) {
+                          users[i].mvpCount = 0;
+                          users[i].mvpVoted = false;
+
+                          }
+                    }
+              },
+
           //Find user ID without them necessarily being in the room still
           getID: function(name) {
                       var id;
@@ -463,9 +479,9 @@
                           }
                       }
 
-                  if (isNaN(id)) return false;
-                  else return id;
               },
+
+
 
 
 
@@ -1949,13 +1965,13 @@
                             var name = msg.substr(cmd.length + 2);
                             var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                             var voter = jungleBot.userUtilities.lookupUserName(chat.un);
-                            if (chat.message.length == cmd.length)  return API.sendChat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(voter) +  ' times!');
+                            if (chat.message.length == cmd.length)  return API.sendChat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMVPCount(voter) +  ' times!');
                             if (mvpuser) {
-                                      if ((Date.now() - jungleBot.userUtilities.getMvpVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMvpVoted(voter);
+                                      if ((Date.now() - jungleBot.userUtilities.getMVPVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMVPVoted(voter);
                                             if (name == chat.un) return API.sendChat('/me @' + chat.un + ' you can\'t vote for yourself. :WeirdChamp:')
-                                            if (!jungleBot.userUtilities.getMvpVoted(voter)){
-                                            jungleBot.userUtilities.voteMvp(mvpuser);
-                                            jungleBot.userUtilities.setMvpVoted(voter);
+                                            if (!jungleBot.userUtilities.getMVPVoted(voter)){
+                                            jungleBot.userUtilities.voteMVP(mvpuser);
+                                            jungleBot.userUtilities.setMVPVoted(voter);
                                              API.sendChat('/me ' + chat.un + ' has voted ' + name + ' for Plug DJ MVP!');
                                           }
                                       else {
@@ -1981,8 +1997,24 @@
                               var mvpname = msg.substr(cmd.length + 2);
                               var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                               if (chat.message.length == cmd.length)  mvpname = chat.un;
-                              API.sendChat('/me @' + chat.un + ' ' + mvpname + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(mvpuser) + ' times!');
+                              API.sendChat('/me @' + chat.un + ' ' + mvpname + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMVPCount(mvpuser) + ' times!');
                             }
+                },
+
+
+            // see how many votes a person got.
+
+            resetmvpvotingsCommand: {
+                        command: 'resetmvpvotings',
+                        rank: 'user',
+                        type: 'exact',
+                        functionality: function(chat, cmd) {
+
+                          jungleBot.userUtilities.resetMVPALL();
+
+                          API.sendChat('MVP votings reset.');
+
+                        }
                 },
 
           // /me CALCULATING
