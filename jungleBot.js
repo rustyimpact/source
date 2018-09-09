@@ -1969,8 +1969,8 @@
                         }
                     },
 
-				// any m0xxers?		
-					
+				// any m0xxers?
+
 			fiveheadCommand: {
                         command: ['5head', 'fivehead', 'moxxer', 'm0xxer'],
                         rank: 'residentdj',
@@ -1983,11 +1983,11 @@
                             if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                             if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                             else {
-        	                       API.sendChat(cmdmsg + ' https://imgur.com/a/hpg1ZJd');
+        	                       API.sendChat(cmdmsg + ' https://i.imgur.com/FJu2iwp.png');
                             }
                         }
-                    },		
-					
+                    },
+
             // @user with WeirdChamp
 
           	weirdchampCommand: {
