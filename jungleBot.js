@@ -4532,8 +4532,7 @@
                                     name: from
                                 }));
                             } else {
-                                if (API.getWaitListPosition(id) != djlist.length - 1)
-                                    API.moderateRemoveDJ(id);
+                                API.moderateRemoveDJ(id);
                                 API.sendChat('/me @' + from + ' you\'re not worthy of the hammer. Was at position ' + pos + ' in the waitlist. Come back another day.');
                             }
                         }
