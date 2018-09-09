@@ -1982,8 +1982,8 @@
                               var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                               if (chat.message.length == cmd.length)  mvpname = chat.un;
                               API.sendchat('/me @' + chat.un + ' ' + mvpname + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(mvpuser) + ' times!');
-
-                                },
+                            }
+                },
 
           // /me CALCULATING
 
@@ -2003,7 +2003,70 @@
                           }
                       }
                   },
-            // chu say brug?
+
+
+            togglethorCommand: {
+                command: ['togglethor', 'thortoggle'],
+                rank: 'mod',
+                type: 'exact',
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                    else {
+                        jungleBot.settings.thorCommand = !jungleBot.settings.thorCommand;
+                        if (jungleBot.settings.thorCommand) {
+
+                            API.sendChat('/me Thor command enabled.');
+                        }
+                        else {
+                            API.sendChat('/me Thor command disabled.');
+                        }
+                    }
+                }
+            },
+
+            thorcooldownCommand: {
+            command: ['thorcooldown', 'thorcd'],
+                rank: 'mod',
+                type: 'startsWith',
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                    else {
+                      var msg = chat.message.substr(cmd.length + 1);
+                      if (isNaN(msg)){
+                        API.sendChat('/me invalid argument.');
+                      }
+                      else {
+                        jungleBot.settings.thorCooldown = msg;
+                            API.sendChat('/me Thor cooldown set to ' + msg + ' minutes.');
+                           }
+                    }
+                }
+            },
+
+            commandcooldownCommand: {
+            command: ['commandcooldown', 'commandcd', 'cmdcd'],
+                rank: 'mod',
+                type: 'startsWith',
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                    else {
+                      var msg = chat.message.substr(cmd.length + 1);
+                      if (isNaN(msg)){
+                        API.sendChat('/me invalid argument.');
+                      }
+                      else {
+                        jungleBot.settings.commandCooldown = msg;
+                            API.sendChat('/me User command cooldown set to ' + msg + ' minutes.');
+                           }
+                    }
+                }
+            },
+
+
+            // OOOH CANNAAADAAAA~
 
             canadaflagCommand: {
                         command: ['canada', 'ohcanada', 'flag'],
@@ -2847,65 +2910,7 @@
                 }
             },
 
-            togglethorCommand: {
-                command: ['togglethor', 'thortoggle'],
-                rank: 'mod',
-                type: 'exact',
-                functionality: function(chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
-                    else {
-                        jungleBot.settings.thorCommand = !jungleBot.settings.thorCommand;
-                        if (jungleBot.settings.thorCommand) {
 
-                            API.sendChat('/me Thor command enabled.');
-                        }
-                        else {
-                            API.sendChat('/me Thor command disabled.');
-                        }
-                    }
-                }
-            },
-
-            thorcooldownCommand: {
-            command: ['thorcooldown', 'thorcd'],
-                rank: 'mod',
-                type: 'startsWith',
-                functionality: function(chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
-                    else {
-                      var msg = chat.message.substr(cmd.length + 1);
-                      if (isNaN(msg)){
-                        API.sendChat('/me invalid argument.');
-                      }
-                      else {
-                        jungleBot.settings.thorCooldown = msg;
-                            API.sendChat('/me Thor cooldown set to ' + msg + ' minutes.');
-                           }
-                    }
-                }
-            },
-
-            commandcooldownCommand: {
-            command: ['commandcooldown', 'commandcd', 'cmdcd'],
-                rank: 'mod',
-                type: 'startsWith',
-                functionality: function(chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
-                    else {
-                      var msg = chat.message.substr(cmd.length + 1);
-                      if (isNaN(msg)){
-                        API.sendChat('/me invalid argument.');
-                      }
-                      else {
-                        jungleBot.settings.commandCooldown = msg;
-                            API.sendChat('/me User command cooldown set to ' + msg + ' minutes.');
-                           }
-                    }
-                }
-            },
 
             cookieCommand: {
                 command: 'cookie',
