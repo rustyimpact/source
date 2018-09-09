@@ -1949,7 +1949,7 @@
                             var name = msg.substr(cmd.length + 2);
                             var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                             var voter = jungleBot.userUtilities.lookupUserName(chat.un);
-                            if (chat.message.length == cmd.length)  return API.sendchat('/me @' + chat.un ' has been voted !plugdjmvp ' + voter.getMvpCount +  ' times!');
+                            if (chat.message.length == cmd.length)  return API.sendchat('/me @' + chat.un + ' has been voted !plugdjmvp ' + voter.getMvpCount +  ' times!');
                             if (mvpuser) {
                                       if ((Date.now() - voter.getMvpVoted ) >  70000000) resetMvpVoted;
                                             if (!voter.getMvpVoted){
