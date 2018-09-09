@@ -1949,7 +1949,7 @@
                             var name = msg.substr(cmd.length + 2);
                             var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                             var voter = jungleBot.userUtilities.lookupUserName(chat.un);
-                            if (chat.message.length == cmd.length)  return API.sendchat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(voter) +  ' times!');
+                            if (chat.message.length == cmd.length)  return API.sendChat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(voter) +  ' times!');
                             if (mvpuser) {
                                       if ((Date.now() - jungleBot.userUtilities.getMvpVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMvpVoted(voter);
                                             if (name == chat.un) return API.sendChat('/me @' + chat.un + ' you can\'t vote for yourself. :WeirdChamp:')
@@ -1981,7 +1981,7 @@
                               var mvpname = msg.substr(cmd.length + 2);
                               var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                               if (chat.message.length == cmd.length)  mvpname = chat.un;
-                              API.sendchat('/me @' + chat.un + ' ' + mvpname + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(mvpuser) + ' times!');
+                              API.sendChat('/me @' + chat.un + ' ' + mvpname + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(mvpuser) + ' times!');
                             }
                 },
 
