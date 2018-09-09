@@ -2059,7 +2059,7 @@
                       }
                       else {
                         jungleBot.settings.commandCooldown = msg;
-                            API.sendChat('/me User command cooldown set to ' + msg + ' minutes.');
+                            API.sendChat('/me User command cooldown set to ' + msg + ' seconds.');
                            }
                     }
                 }
