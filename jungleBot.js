@@ -1979,7 +1979,7 @@
                                       }
 
                               }
-                              else API.sendchat('Invalid user specified.');
+                              else API.sendChat('Invalid user specified.');
                             }
 
                         },
