@@ -286,7 +286,7 @@
   			strictTimeGuard: true,
   			maximumSongLength: 10,
   			autodisable: false,
-  			commandCooldown: 10,
+  			commandCooldown: 2,
   			usercommandsEnabled: true,
   			thorCommand: false,
   			thorCooldown: 1440,
@@ -2794,6 +2794,26 @@
                 }
             },
 
+            thorcooldownCommand: {
+            command: ['thorcooldown', 'thorcd'],
+                rank: 'mod',
+                type: 'exact',
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                    else {
+                      var msg = chat.message.substr(cmd.length + 1);
+                      if (isNaN(msg)){
+                        API.sendChat('/me invalid argument.');
+                      }
+                      else {
+                        jungleBot.settings.thorCooldown = msg;
+                            API.sendChat('/me Thor cooldown set to ' + msg + ' minutes.');
+                           }
+                    }
+                }
+            },
+
             cookieCommand: {
                 command: 'cookie',
                 rank: 'user',
@@ -4392,7 +4412,7 @@
                                         id: id,
                                         time: Date.now()
                                     };
-                                    jungleBot.room.usersUsedThor.push(user);
+                                    if (!worthy)   jungleBot.room.usersUsedThor.push(user);
                                 }
                             }
 
