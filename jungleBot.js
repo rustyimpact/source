@@ -286,7 +286,7 @@
   			strictTimeGuard: true,
   			maximumSongLength: 10,
   			autodisable: false,
-  			commandCooldown: 2,
+  			commandCooldown: 30,
   			usercommandsEnabled: true,
   			thorCommand: false,
   			thorCooldown: 1440,
@@ -1949,14 +1949,14 @@
                             var name = msg.substr(cmd.length + 2);
                             var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                             var voter = jungleBot.userUtilities.lookupUserName(chat.un);
-                            if (chat.message.length == cmd.length)  return API.sendchat('/me @' + chat.un + ' has been voted !plugdjmvp ' + getMvpCount(voter) +  ' times!');
+                            if (chat.message.length == cmd.length)  return API.sendchat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(voter) +  ' times!');
                             if (mvpuser) {
                                       if ((Date.now() - jungleBot.userUtilities.getMvpVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMvpVoted(voter);
-                                            if (name == chat.un) return API.sendChat('/me @' + chat.un + 'you can\'t vote for yourself. :WeirdChamp:')
+                                            if (name == chat.un) return API.sendChat('/me @' + chat.un + ' you can\'t vote for yourself. :WeirdChamp:')
                                             if (!jungleBot.userUtilities.getMvpVoted(voter)){
                                             jungleBot.userUtilities.voteMvp(mvpuser);
                                             jungleBot.userUtilities.setMvpVoted(voter);
-                                             API.sendChat('/me ' + chat.un + 'has voted ' + name + ' for Plug DJ MVP!');
+                                             API.sendChat('/me ' + chat.un + ' has voted ' + name + ' for Plug DJ MVP!');
                                           }
                                       else {
                                         API.sendChat('/me @' + chat.un + ' you\'ve already voted today, you can vote again tomorrow.')
@@ -1966,7 +1966,24 @@
                               else API.sendchat('Invalid user specified.');
                             }
 
-                              },
+                        },
+
+
+            // see how many votes a person got.
+
+            mvpscoreCommand: {
+                        command: ['plugdjmvpcount', 'mvpscore', 'mvpcount', 'score'],
+                        rank: 'user',
+                        type: 'startsWith',
+                        functionality: function(chat, cmd) {
+
+                              var msg = chat.message;
+                              var mvpname = msg.substr(cmd.length + 2);
+                              var mvpuser = jungleBot.userUtilities.lookupUserName(name);
+                              if (chat.message.length == cmd.length)  mvpname = chat.un;
+                              API.sendchat('/me @' + chat.un + ' ' + mvpname + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMvpCount(mvpuser) + ' times!');
+
+                                },
 
           // /me CALCULATING
 
@@ -2865,6 +2882,26 @@
                       else {
                         jungleBot.settings.thorCooldown = msg;
                             API.sendChat('/me Thor cooldown set to ' + msg + ' minutes.');
+                           }
+                    }
+                }
+            },
+
+            commandcooldownCommand: {
+            command: ['commandcooldown', 'commandcd', 'cmdcd'],
+                rank: 'mod',
+                type: 'startsWith',
+                functionality: function(chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                    else {
+                      var msg = chat.message.substr(cmd.length + 1);
+                      if (isNaN(msg)){
+                        API.sendChat('/me invalid argument.');
+                      }
+                      else {
+                        jungleBot.settings.commandCooldown = msg;
+                            API.sendChat('/me User command cooldown set to ' + msg + ' minutes.');
                            }
                     }
                 }
