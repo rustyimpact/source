@@ -465,7 +465,7 @@
                           users[i].mvpVoted = false;
 
                           }
-                    }
+
               },
 
           //Find user ID without them necessarily being in the room still
