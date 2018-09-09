@@ -304,7 +304,7 @@
   			afkpositionCheck: 50,
   			afkRankCheck: 'user',
   			motdEnabled: false,
-  			motdInterval: 15,
+  			motdInterval: 13,
   			motd: 'Allo',
   			filterChat: false,
   			etaRestriction: true,
@@ -820,21 +820,24 @@
                 });
             },
             intervalMessage: function() {
-                var interval;
-                if (jungleBot.settings.motdEnabled) interval = jungleBot.settings.motdInterval;
-                else interval = jungleBot.settings.messageInterval;
-                if ((jungleBot.room.roomstats.songCount % interval) === 0 && jungleBot.status) {
-                    var msg;
-                    if (jungleBot.settings.motdEnabled) {
-                        msg = jungleBot.settings.motd;
-                    } else {
+                if ((jungleBot.room.roomstats.songCount % jungleBot.settings.messageInterval) === 0 && jungleBot.status) {
+
                         if (jungleBot.settings.intervalMessages.length === 0) return void(0);
                         var messageNumber = jungleBot.room.roomstats.songCount % jungleBot.settings.intervalMessages.length;
                         msg = jungleBot.settings.intervalMessages[messageNumber];
-                    }
-                    API.sendChat('/me ' + msg);
+                        API.sendChat('/me ' + msg);
                 }
             },
+
+            motdMessage: function() {
+                var interval;
+                if (jungleBot.settings.motdEnabled) {
+                if ((jungleBot.room.roomstats.songCount % jungleBot.settings.motdInterval) === 0 && jungleBot.status) {
+                    API.sendChat('/me MotD: ' + jungleBot.settings.motd);
+                }
+              }
+            },
+
             updateBlacklists: function() {
                 for (var bl in jungleBot.settings.blacklists) {
                     jungleBot.room.blacklists[bl] = [];
@@ -1059,6 +1062,7 @@
                 jungleBot.room.roomstats.totalCurates += lastplay.score.grabs;
                 jungleBot.room.roomstats.songCount++;
                 jungleBot.roomUtilities.intervalMessage();
+                jungleBot.roomUtilities.motdMessage();
                 jungleBot.room.currentDJID = obj.dj.id;
 
 
