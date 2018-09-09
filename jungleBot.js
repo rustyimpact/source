@@ -1949,13 +1949,14 @@
                             var name = msg.substr(cmd.length + 2);
                             var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                             var voter = jungleBot.userUtilities.lookupUserName(chat.un);
-                            if (chat.message.length == cmd.length)  return API.sendchat('/me @' + chat.un + ' has been voted !plugdjmvp ' + voter.getMvpCount +  ' times!');
+                            if (chat.message.length == cmd.length)  return API.sendchat('/me @' + chat.un + ' has been voted !plugdjmvp ' + getMvpCount(voter) +  ' times!');
                             if (mvpuser) {
-                                      if ((Date.now() - voter.getMvpVoted ) >  70000000) resetMvpVoted;
-                                            if (!voter.getMvpVoted){
-                                            voteMvp(mvpuser);
-                                            setMvpVoted(voter);
-                                            API.sendChat('/me ' + chat.un + 'has voted ' + name + ' for Plug DJ MVP!');
+                                      if ((Date.now() - jungleBot.userUtilities.getMvpVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMvpVoted(voter);
+                                            if (name == chat.un) return API.sendChat('/me @' + chat.un + 'you can\'t vote for yourself. :WeirdChamp:')
+                                            if (!jungleBot.userUtilities.getMvpVoted(voter)){
+                                            jungleBot.userUtilities.voteMvp(mvpuser);
+                                            jungleBot.userUtilities.setMvpVoted(voter);
+                                             API.sendChat('/me ' + chat.un + 'has voted ' + name + ' for Plug DJ MVP!');
                                           }
                                       else {
                                         API.sendChat('/me @' + chat.un + ' you\'ve already voted today, you can vote again tomorrow.')
