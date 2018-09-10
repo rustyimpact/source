@@ -629,7 +629,7 @@
                     }
                 }
                 var newPosition = user.lastDC.position - songsPassed - afksRemoved;
-                if (newPosition <= 0) return subChat('You can not be reconnected because your spot came up while you were disconnected.');
+                if (newPosition <= 0) return API.sendChat('/me @' + name + ' You can not be reconnected because your spot came up while you were disconnected.');
                 var msg = subChat(jungleBot.chat.valid, {
                     name: jungleBot.userUtilities.getUser(user).username,
                     time: time,
