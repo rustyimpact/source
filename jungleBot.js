@@ -2052,12 +2052,12 @@
                                API.sendChat('/me The current Plug DJ MVP standings:');
                                for (var i = 0; i < ranknumber; ++i) {
                                   var currentrank = i + 1 ;
-                                  var func = function(pCurrentrank, pUsers) {
+                                  var func = function(pCurrentrank, pUsers, j) {
                                     setTimeout(function() {
-                                              API.sendChat(pCurrentrank + '. ' + pUsers[i].username + ' :' + pUsers[i].mvpCount);
-                                          }, 200 * i);
+                                              API.sendChat(pCurrentrank + '. ' + pUsers[j].username + ' :' + pUsers[j].mvpCount);
+                                          }, 250 * j);
                                       }
-                                      func(currentrank, users);
+                                      func(currentrank, users, i);
 
                                    }
 
