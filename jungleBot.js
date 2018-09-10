@@ -315,7 +315,7 @@
   			fbLink: null,
   			youtubeLink: 'http://youtube.com/xqcow',
   			website: 'http://twitch.tv/xqcow',
-  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands", "Vote for the plug DJ MVP with !plugdjmvp :PogU:"],
+  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands", "Vote for the plug DJ MVP with !plugdjmvp :PogU:", "!rankings"],
   			messageInterval: 11,
   			songstats: false,
   			commandLiteral: '!',
@@ -876,7 +876,7 @@
                 var interval;
                 if (jungleBot.settings.motdEnabled) {
                 if ((jungleBot.room.roomstats.songCount % jungleBot.settings.motdInterval) === 0 && jungleBot.status) {
-                    API.sendChat('/me MotD: ' + jungleBot.settings.motd);
+                    API.sendChat(jungleBot.settings.motd);
                 }
               }
             },
@@ -2055,7 +2055,7 @@
                                   var func = function(pCurrentrank, pUsers, j) {
                                     setTimeout(function() {
                                               API.sendChat(pCurrentrank + '. ' + pUsers[j].username + ' : ' + pUsers[j].mvpCount);
-                                          }, 175 * j);
+                                          }, 220 * j);
                                       }
                                       func(currentrank, users, i);
 
