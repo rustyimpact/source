@@ -1996,9 +1996,7 @@
                             var name = msg.substr(cmd.length + 2);
                             var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                             var voter = jungleBot.userUtilities.lookupUserName(chat.un);
-                            if (botCreatorIDs.indexOf(voter) > -1) {
-                                jungleBot.userUtilities.resetMVPVoted(voter)
-                            }
+
                             if (chat.message.length == cmd.length)  return API.sendChat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMVPCount(voter) +  ' times!');
                             if (mvpuser) {
                                       if ((Date.now() - jungleBot.userUtilities.getMVPVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMVPVoted(voter);
@@ -2055,7 +2053,7 @@
                                   var func = function(pCurrentrank, pUsers, j) {
                                     setTimeout(function() {
                                               API.sendChat(pCurrentrank + '. ' + pUsers[j].username + ' : ' + pUsers[j].mvpCount);
-                                          }, (420 * j + 20 * j));
+                                          }, (500 +  * j + 50 * j));
                                       }
                                       func(currentrank, users, i);
 
