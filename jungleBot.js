@@ -315,7 +315,7 @@
   			fbLink: null,
   			youtubeLink: 'http://youtube.com/xqcow',
   			website: 'http://twitch.tv/xqcow',
-  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands"],
+  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands", "Vote for the plug DJ MVP with !plugdjmvp :PogU:"],
   			messageInterval: 11,
   			songstats: false,
   			commandLiteral: '!',
@@ -467,6 +467,10 @@
                           }
 
               },
+
+
+
+
 
           //Find user ID without them necessarily being in the room still
           getID: function(name) {
@@ -1644,6 +1648,41 @@
                 }
             },
             */
+
+
+
+
+
+
+                },
+            //Get the current top ranking MVP's
+
+          mvpRankingCommand:  {
+                   command: ['mvpranking'],
+                   rank: 'residentdj',
+                   type: 'startsWith',
+                   functionality: function(chat, cmd) {
+
+                                if (chat.message.length == cmd.length) var ranknumber = 5;
+                                else if (isNaN(ranknumber)) return API.sendChat('/me @' + chat.un + ' Invalid parameter specified.');
+                                else  var ranknumber = chat.message.substr(cmd.length + 1);
+
+
+                               var users = jungleBot.room.users;
+                               users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
+                               API.sendChat('/me The current Plug DJ MVP standings:');
+                               for (var i = 1; i < ranknumber; ++i) {
+                                   API.sendChat(i + '. ' + users[i].username);
+                                   }
+
+
+
+
+                   }
+               },
+
+
+
 
             banCommand: {
                            command: 'ban',
