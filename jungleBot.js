@@ -629,9 +629,7 @@
                     }
                 }
                 var newPosition = user.lastDC.position - songsPassed - afksRemoved;
-                if (newPosition <= 0) return subChat(jungleBot.chat.notdisconnected, {
-                    name: name
-                });
+                if (newPosition <= 0) return subChat('You can not be reconnected because your spot came up while you were disconnected.');
                 var msg = subChat(jungleBot.chat.valid, {
                     name: jungleBot.userUtilities.getUser(user).username,
                     time: time,
@@ -1999,7 +1997,7 @@
 
                             if (chat.message.length == cmd.length)  return API.sendChat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMVPCount(voter) +  ' times!');
                             if (mvpuser) {
-                                      if ((Date.now() - jungleBot.userUtilities.getMVPVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMVPVoted(voter);
+                                      if ((Date.now() - jungleBot.userUtilities.getMVPVoted(voter) ) >  60000000) jungleBot.userUtilities.resetMVPVoted(voter);
                                             if (name == chat.un) return API.sendChat('/me @' + chat.un + ' you can\'t vote for yourself. :WeirdChamp:')
                                             if (!jungleBot.userUtilities.getMVPVoted(voter)){
                                             jungleBot.userUtilities.voteMVP(mvpuser);
@@ -2007,7 +2005,7 @@
                                              API.sendChat('/me ' + chat.un + ' has voted ' + name + ' for Plug DJ MVP!');
                                           }
                                       else {
-                                        API.sendChat('/me @' + chat.un + ' you\'ve already voted today, you can vote again tomorrow.')
+                                        API.sendChat('/me @' + chat.un + ' you\'ve already voted, you can vote again tomorrow.')
                                       }
 
                               }
@@ -2047,7 +2045,7 @@
                                 if (chat.message.length == cmd.length) ranknumber = 5;
                                 var users = jungleBot.room.users;
                                users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
-                               API.sendChat('/me The current Plug DJ MVP standings:');
+                               API.sendChat('/me The current !plugdjmvp standings:');
                                for (var i = 0; i < ranknumber; ++i) {
                                   var currentrank = i + 1 ;
                                   var func = function(pCurrentrank, pUsers, j) {
