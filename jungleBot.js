@@ -2054,8 +2054,8 @@
                                   var currentrank = i + 1 ;
                                   var func = function(pCurrentrank, pUsers, j) {
                                     setTimeout(function() {
-                                              API.sendChat(pCurrentrank + '. ' + pUsers[j].username + ' :' + pUsers[j].mvpCount);
-                                          }, 250 * j);
+                                              API.sendChat(pCurrentrank + '. ' + pUsers[j].username + ' : ' + pUsers[j].mvpCount);
+                                          }, 175 * j);
                                       }
                                       func(currentrank, users, i);
 
