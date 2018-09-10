@@ -1726,7 +1726,7 @@
             //pepepls
 
                        pepeplsCommand: {
-                                 command: ['pepepls', 'dance'],
+                                 command: ['pepepls', 'pls'],
                                  rank: 'user',
                                  type: 'startsWith',
                                  functionality: function(chat, cmd) {
@@ -1979,7 +1979,7 @@
                                       }
 
                               }
-                              else API.sendChat('Invalid user specified.');
+                              else API.sendChat('/me @' + chat.un + ' Invalid user specified.');
                             }
 
                         },
@@ -2136,6 +2136,25 @@
                             }
                         }
                     },
+
+                    // chu say brug?
+
+                    danceCommand: {
+                                command: ['dance', 'dancespam'],
+                                rank: 'residentdj',
+                                type: 'startsWith',
+                                functionality: function(chat, cmd) {
+
+                          var msg = chat.message;
+                          var cmdmsg = msg.substr(cmd.length + 1);
+
+                                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                    else {
+                                         API.sendChat(':dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance::dance:');
+                                    }
+                                }
+                            },
 
 				// any m0xxers?
 
