@@ -1654,7 +1654,7 @@
 
 
 
-                },
+    
             //Get the current top ranking MVP's
 
           mvpRankingCommand:  {
