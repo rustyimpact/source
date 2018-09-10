@@ -1655,32 +1655,6 @@
 
 
 
-            //Get the current top ranking MVP's
-
-          mvpRankingCommand:  {
-                   command: ['mvpranking'],
-                   rank: 'residentdj',
-                   type: 'startsWith',
-                   functionality: function(chat, cmd) {
-
-                                if (chat.message.length == cmd.length) var ranknumber = 5;
-                                else  var ranknumber = chat.message.substr(cmd.length + 1);
-
-
-                               var users = jungleBot.room.users;
-                               users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
-                               API.sendChat('/me The current Plug DJ MVP standings:');
-                               for (var i = 1; i < ranknumber; ++i) {
-                                   API.sendChat(i + '. ' + users[i].username + ' :' + users[i].mvpCount);
-                                   }
-                               API.sendChat('/me ________________________________________________________');
-
-
-
-                   }
-               },
-
-
 
 
             banCommand: {
@@ -2042,7 +2016,7 @@
                         },
 
 
-            // see how many votes a person got.
+            // see how many votes a user got.
 
             mvpscoreCommand: {
                         command: ['plugdjmvpcount', 'mvpscore', 'mvpcount', 'score'],
@@ -2059,7 +2033,35 @@
                 },
 
 
-            // see how many votes a person got.
+          //Get the current top ranking MVP's
+
+          mvpRankingCommand:  {
+                   command: ['mvpranking'],
+                   rank: 'residentdj',
+                   type: 'startsWith',
+                   functionality: function(chat, cmd) {
+                                var ranknumber;
+
+                                ranknumber = chat.message.substr(cmd.length + 1);
+                                if (chat.message.length == cmd.length) ranknumber = 5;
+
+
+                               var users = jungleBot.room.users;
+                               users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
+                               API.sendChat('/me The current Plug DJ MVP standings:');
+                               for (var i = 1; i < ranknumber; ++i)! {
+                                   API.sendChat(i + '. ' + users[i].username + ' :' + users[i].mvpCount);
+                                   }
+
+
+
+                   }
+               },
+
+
+
+
+            // reset all the votes and cooldowns
 
             resetmvpvotingsCommand: {
                         command: ['resetmvpvotings', 'mvpreset'],
