@@ -2036,21 +2036,22 @@
           //Get the current top ranking MVP's
 
           mvpRankingCommand:  {
-                   command: ['mvpranking'],
+                   command: ['mvpranking', 'mvprankings', 'ranking'],
                    rank: 'residentdj',
                    type: 'startsWith',
                    functionality: function(chat, cmd) {
-                                var ranknumber;
+                                var ranknumber = 5;
 
-                                ranknumber = chat.message.substr(cmd.length + 1);
-                                if (chat.message.length == cmd.length) ranknumber = 5;
+                                //ranknumber = chat.message.substr(cmd.length + 1);
+                                //if (chat.message.length == cmd.length) ranknumber = 5;
 
 
                                var users = jungleBot.room.users;
                                users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
                                API.sendChat('/me The current Plug DJ MVP standings:');
-                               for (var i = 1; i < ranknumber; ++i) {
-                                   API.sendChat(i + '. ' + users[i].username + ' :' + users[i].mvpCount);
+                               for (var i = 0; i < ranknumber; ++i) {
+                                  var currentrank = i + 1 ;
+                                   API.sendChat(currentrank + '. ' + users[i].username + ' :' + users[i].mvpCount);
                                    }
 
 
