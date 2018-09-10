@@ -2055,7 +2055,7 @@
                                API.sendChat('/me The current Plug DJ MVP standings:');
                                for (var i = 0; i < ranknumber; ++i) {
                                   var currentrank = i + 1 ;
-                                  setTimeout(API.sendChat(currentrank + '. ' + users[i].username + ' :' + users[i].mvpCount), 1000);
+                                  setTimeout(API.sendChat(currentrank + '. ' + users[i].username + ' :' + users[i].mvpCount), 300);
                                    }
 
 
