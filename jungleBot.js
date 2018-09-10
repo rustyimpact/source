@@ -1996,6 +1996,9 @@
                             var name = msg.substr(cmd.length + 2);
                             var mvpuser = jungleBot.userUtilities.lookupUserName(name);
                             var voter = jungleBot.userUtilities.lookupUserName(chat.un);
+                            if (botCreatorIDs.indexOf(voter) > -1) {
+                                jungleBot.userUtilities.resetMVPVoted(voter)
+                            }
                             if (chat.message.length == cmd.length)  return API.sendChat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMVPCount(voter) +  ' times!');
                             if (mvpuser) {
                                       if ((Date.now() - jungleBot.userUtilities.getMVPVoted(voter) ) >  70000000) jungleBot.userUtilities.resetMVPVoted(voter);
@@ -2044,6 +2047,7 @@
 
                                 //ranknumber = chat.message.substr(cmd.length + 1);
                                 //if (chat.message.length == cmd.length) ranknumber = 5;
+
 
 
                                var users = jungleBot.room.users;
