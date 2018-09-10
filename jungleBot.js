@@ -2047,18 +2047,19 @@
 
                                 ranknumber = chat.message.substr(cmd.length + 1);
                                 if (chat.message.length == cmd.length) ranknumber = 5;
-
-
-
-                               var users = jungleBot.room.users;
+                                var users = jungleBot.room.users;
                                users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
                                API.sendChat('/me The current Plug DJ MVP standings:');
                                for (var i = 0; i < ranknumber; ++i) {
                                   var currentrank = i + 1 ;
-                                  setTimeout(API.sendChat(currentrank + '. ' + users[i].username + ' :' + users[i].mvpCount), 1000);
+                                  var func = function(pCurrentrank, pUsers) {
+                                    setTimeout(function() {
+                                              API.sendChat(pCurrentrank + '. ' + pUsers[i].username + ' :' + pUsers[i].mvpCount);
+                                          }, 200 * i);
+                                      }
+                                      func(currentrank, users);
+
                                    }
-
-
 
                    }
                },
