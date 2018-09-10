@@ -1672,7 +1672,7 @@
                                users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
                                API.sendChat('/me The current Plug DJ MVP standings:');
                                for (var i = 1; i < ranknumber; ++i) {
-                                   API.sendChat(i + '. ' + users[i].username + ' :' + users.mvpVoted);
+                                   API.sendChat(i + '. ' + users[i].username + ' :' + users.mvpCount);
                                    }
                                API.sendChat('/me ________________________________________________________');
 
