@@ -2062,7 +2062,7 @@
             // see how many votes a person got.
 
             resetmvpvotingsCommand: {
-                        command: 'resetmvpvotings',
+                        command: ['resetmvpvotings', 'mvpreset'],
                         rank: 'user',
                         type: 'exact',
                         functionality: function(chat, cmd) {
