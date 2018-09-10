@@ -2049,7 +2049,7 @@
                                var users = jungleBot.room.users;
                                users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
                                API.sendChat('/me The current Plug DJ MVP standings:');
-                               for (var i = 1; i < ranknumber; ++i)! {
+                               for (var i = 1; i < ranknumber; ++i) {
                                    API.sendChat(i + '. ' + users[i].username + ' :' + users[i].mvpCount);
                                    }
 
