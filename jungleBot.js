@@ -2055,7 +2055,7 @@
                                   var func = function(pCurrentrank, pUsers, j) {
                                     setTimeout(function() {
                                               API.sendChat(pCurrentrank + '. ' + pUsers[j].username + ' : ' + pUsers[j].mvpCount);
-                                          }, 420 * j);
+                                          }, (420 * j + 21 * j));
                                       }
                                       func(currentrank, users, i);
 
@@ -3948,14 +3948,14 @@
 
             motdCommand: {
                 command: 'motd',
-                rank: 'bouncer',
+                rank: 'residentdj',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                     if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                     else {
                         var msg = chat.message;
-                        if (msg.length <= cmd.length + 1) return API.sendChat('/me MotD: ' + jungleBot.settings.motd);
+                        if (msg.length <= cmd.length + 1) return API.sendChat(jungleBot.settings.motd);
                         var argument = msg.substring(cmd.length + 1);
                         if (!jungleBot.settings.motdEnabled) jungleBot.settings.motdEnabled = !jungleBot.settings.motdEnabled;
                         if (isNaN(argument)) {
