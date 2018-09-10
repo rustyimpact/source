@@ -1664,7 +1664,6 @@
                    functionality: function(chat, cmd) {
 
                                 if (chat.message.length == cmd.length) var ranknumber = 5;
-                                else if (isNaN(ranknumber)) return API.sendChat('/me @' + chat.un + ' Invalid parameter specified.');
                                 else  var ranknumber = chat.message.substr(cmd.length + 1);
 
 
@@ -1672,7 +1671,7 @@
                                users.sort(function(userA, userB) {return userB.mvpCount - userA.mvpCount});
                                API.sendChat('/me The current Plug DJ MVP standings:');
                                for (var i = 1; i < ranknumber; ++i) {
-                                   API.sendChat(i + '. ' + users[i].username + ' :' + users.mvpCount);
+                                   API.sendChat(i + '. ' + users[i].username + ' :' + users[i].mvpCount);
                                    }
                                API.sendChat('/me ________________________________________________________');
 
