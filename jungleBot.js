@@ -159,20 +159,23 @@
             var settings = JSON.parse(localStorage.getItem('jungleBotsettings'));
             var room = JSON.parse(localStorage.getItem('jungleBotRoom'));
             var elapsed = Date.now() - JSON.parse(info).time;
+            if ((elapsed < 1 * 60 * 60 * 1000)) {
                 API.chatLog(jungleBot.chat.retrievingdata);
                 for (var prop in settings) {
                     jungleBot.settings[prop] = settings[prop];
                 }
-                jungleBot.room.users = room.users;
+
                 jungleBot.room.afkList = room.afkList;
                 jungleBot.room.historyList = room.historyList;
                 jungleBot.room.mutedUsers = room.mutedUsers;
                 //jungleBot.room.autoskip = room.autoskip;
-                jungleBot.room.roomstats = room.roomstats;
                 jungleBot.room.messages = room.messages;
                 jungleBot.room.queue = room.queue;
-                jungleBot.room.newBlacklisted = room.newBlacklisted;
-                API.chatLog(jungleBot.chat.datarestored);
+            }
+              jungleBot.room.roomstats = room.roomstats;
+              jungleBot.room.newBlacklisted = room.newBlacklisted;
+              jungleBot.room.users = room.users;
+              API.chatLog(jungleBot.chat.datarestored);
         }
         var json_sett = null;
         var info = _.find(require.s.contexts._.defined, (m) => m && m.attributes && 'hostID' in m.attributes).get('long_description');
@@ -484,8 +487,21 @@
               },
 
 
+          //make the bot join the queue
+          joinQueue: function() {
+
+              API.moderateAddDJ(jungleBot.loggedInID);
+
+              },
 
 
+          // stop DJing if currently playing or leave the queue if in queue
+
+          stopDJing: function() {
+            if (API.getDJ().id === jungleBot.loggedInID) {
+                API.moderateForceSkip();
+            } else API.moderateRemoveDJ(jungleBot.loggedInID);
+          }
 
           //END CUSTOM FUNCTIONS
 
@@ -1053,7 +1069,7 @@
                 }
             },
             eventDjadvance: function(obj) {
-                if (!obj.dj) return;
+                if (!obj.dj) return setTimeout(joinQueue(), 2000);
 
                 var blacklistSkip = setTimeout(function() {
                     var mid = obj.media.format + ':' + obj.media.cid;
@@ -1107,10 +1123,12 @@
 
                 var newMedia = obj.media;
                 clearTimeout(jungleBot.room.tgSkip);
+                if (jungleBot.userUtilities.getPermission(obj.dj.id) <= API.ROLE.MANAGER) {
                 var timeLimitSkip = setTimeout(function() {
                     if (jungleBot.settings.timeGuard && newMedia.duration > jungleBot.settings.maximumSongLength * 60 && !jungleBot.room.roomevent) {
                         if (typeof jungleBot.settings.strictTimeGuard === 'undefined' || jungleBot.settings.strictTimeGuard) {
                             var name = obj.dj.username;
+
                             API.sendChat(subChat(jungleBot.chat.timelimit, {
                                 name: name,
                                 maxlength: jungleBot.settings.maximumSongLength
@@ -1128,6 +1146,7 @@
                         }
                     }
                 }, 1);
+              }
                 var format = obj.media.format;
                 var cid = obj.media.cid;
                 var naSkip = setTimeout(function() {
@@ -1210,6 +1229,8 @@
                 //sendToSocket();
             },
             eventWaitlistupdate: function(users) {
+
+               setTimeout(stopDJing(), 180000);
                 if (users.length < 50) {
                     if (jungleBot.room.queue.id.length > 0 && jungleBot.room.queueable) {
                         jungleBot.room.queueable = false;
