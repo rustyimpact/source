@@ -1068,7 +1068,7 @@
             },
             eventDjadvance: function(obj) {
 
-            if (!obj.dj) jungleBot.userUtilities.joinQueue();
+            if (!obj.dj) return API.moderateAddDJ(jungleBot.loggedInID);
 
                 var blacklistSkip = setTimeout(function() {
                     var mid = obj.media.format + ':' + obj.media.cid;
@@ -2003,7 +2003,7 @@
           // !plugdjmvp @Harry_McKenzie
 
           mvpCommand: {
-                      command: ['plugdjmvp', 'mvp'],
+                      command: ['plugdjmvp', 'mvp', 'vote'],
                       rank: 'user',
                       type: 'startsWith',
                       functionality: function(chat, cmd) {
@@ -2020,7 +2020,7 @@
                                             if (!jungleBot.userUtilities.getMVPVoted(voter)){
                                             jungleBot.userUtilities.voteMVP(mvpuser);
                                             jungleBot.userUtilities.setMVPVoted(voter);
-                                             API.sendChat('/me ' + chat.un + ' has voted ' + name + ' for Plug DJ MVP!');
+                                             API.sendChat('/me ' + chat.un + ' has voted ' + name + ' for Plug DJ MVP! (vote with "!mvp @user")');
                                           }
                                       else {
                                         API.sendChat('/me @' + chat.un + ' you\'ve already voted, you can vote again tomorrow.')
