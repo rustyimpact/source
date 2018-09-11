@@ -2025,8 +2025,9 @@
 
                               var msg = chat.message;
                               var mvpname = msg.substr(cmd.length + 2);
-                              var mvpuser = jungleBot.userUtilities.lookupUserName(mvpname);
                               if (chat.message.length == cmd.length)  mvpname = chat.un;
+                              var mvpuser = jungleBot.userUtilities.lookupUserName(mvpname);
+
                               API.sendChat('/me @' + chat.un + ' ' + mvpname + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMVPCount(mvpuser) + ' times!');
                             }
                 },
