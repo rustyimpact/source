@@ -498,9 +498,7 @@
           // stop DJing if currently playing or leave the queue if in queue
 
           stopDJing: function() {
-            if (API.getDJ().id === jungleBot.loggedInID) {
-                API.moderateForceSkip();
-            } else API.moderateRemoveDJ(jungleBot.loggedInID);
+            API.moderateRemoveDJ(jungleBot.loggedInID);
           },
 
           //END CUSTOM FUNCTIONS
