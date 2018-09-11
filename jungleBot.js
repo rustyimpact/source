@@ -501,7 +501,7 @@
             if (API.getDJ().id === jungleBot.loggedInID) {
                 API.moderateForceSkip();
             } else API.moderateRemoveDJ(jungleBot.loggedInID);
-          }
+          },
 
           //END CUSTOM FUNCTIONS
 
