@@ -1068,8 +1068,10 @@
             },
             eventDjadvance: function(obj) {
 
-            if (!obj.dj) return API.moderateAddDJ(jungleBot.loggedInID);
-
+            if (!obj.dj) {
+              API.moderateAddDJ(jungleBot.loggedInID);
+              return 1;
+            }
                 var blacklistSkip = setTimeout(function() {
                     var mid = obj.media.format + ':' + obj.media.cid;
                     for (var bl in jungleBot.room.blacklists) {
@@ -1458,7 +1460,7 @@
                     eventVoteupdate: $.proxy(this.eventVoteupdate, this),
                     eventCurateupdate: $.proxy(this.eventCurateupdate, this),
                     eventRoomscoreupdate: $.proxy(this.eventRoomscoreupdate, this),
-                    eventDjadvance: $.proxy(this.eventDjadvance, this),
+                    event  API.moderateAddDJ(jungleBot.loggedInID);vance: $.proxy(this.eventDjadvance, this),
                     //eventDjupdate: $.proxy(this.eventDjupdate, this),
                     eventWaitlistupdate: $.proxy(this.eventWaitlistupdate, this),
                     eventVoteskip: $.proxy(this.eventVoteskip, this),
@@ -2015,7 +2017,7 @@
 
                             if (chat.message.length == cmd.length)  return API.sendChat('/me @' + chat.un + ' has been voted !plugdjmvp ' + jungleBot.userUtilities.getMVPCount(voter) +  ' times!');
                             if (mvpuser) {
-                                      if ((Date.now() - jungleBot.userUtilities.getMVPVoted(voter) ) >  60000000) jungleBot.userUtilities.resetMVPVoted(voter);
+                                      if ((Date.now() - jungleBot.userUtilities.getMVPVoted(voter) ) >  40000000) jungleBot.userUtilities.resetMVPVoted(voter);
                                             if (name == chat.un) return API.sendChat('/me @' + chat.un + ' you can\'t vote for yourself. :WeirdChamp:')
                                             if (!jungleBot.userUtilities.getMVPVoted(voter)){
                                             jungleBot.userUtilities.voteMVP(mvpuser);
@@ -2216,6 +2218,27 @@
                             }
                         }
                     },
+
+
+                    // chu say brug?
+
+                    joinwlCommand: {
+                                command: ['joinwl'],
+                                rank: 'manager',
+                                type: 'startsWith',
+                                functionality: function(chat, cmd) {
+
+                          var msg = chat.message;
+                          var cmdmsg = msg.substr(cmd.length + 1);
+                          API.moderateAddDJ(jungleBot.loggedInID);
+
+                                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                    else {
+                                         API.sendChat('/me Joining waitlist.');
+                                    }
+                                }
+                            },
 
                     // chu say brug?
 
