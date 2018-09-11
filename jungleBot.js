@@ -159,7 +159,6 @@
             var settings = JSON.parse(localStorage.getItem('jungleBotsettings'));
             var room = JSON.parse(localStorage.getItem('jungleBotRoom'));
             var elapsed = Date.now() - JSON.parse(info).time;
-            if ((elapsed < 1 * 60 * 60 * 1000)) {
                 API.chatLog(jungleBot.chat.retrievingdata);
                 for (var prop in settings) {
                     jungleBot.settings[prop] = settings[prop];
@@ -174,7 +173,6 @@
                 jungleBot.room.queue = room.queue;
                 jungleBot.room.newBlacklisted = room.newBlacklisted;
                 API.chatLog(jungleBot.chat.datarestored);
-            }
         }
         var json_sett = null;
         var info = _.find(require.s.contexts._.defined, (m) => m && m.attributes && 'hostID' in m.attributes).get('long_description');
