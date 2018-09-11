@@ -1069,7 +1069,11 @@
                 }
             },
             eventDjadvance: function(obj) {
-                if (!obj.dj) return setTimeout(joinQueue(), 2000);
+                setTimeout(function(){
+
+                  if (!obj.dj) return joinQueue();
+
+                }, 2000);
 
                 var blacklistSkip = setTimeout(function() {
                     var mid = obj.media.format + ':' + obj.media.cid;
