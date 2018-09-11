@@ -158,7 +158,7 @@
     "songstats": "song statistics",
     "etarestriction": "eta restriction",
     "voteskip": "voteskip",
-    "voteskiplimit": "\/me [@%%NAME%%] Voteskip limit is currently set to %%LIMIT%% mehs. Jebaited",
+    "voteskiplimit": "\/me [@%%NAME%%] Voteskip limit is currently set to %%LIMIT%% mehs. :Jebaited:",
     "voteskipexceededlimit": "\/me @%%NAME%%, your song has exceeded the voteskip limit (%%LIMIT%% mehs)  OMEGALUL.",
     "voteskipinvalidlimit": "\/me [@%%NAME%%] Invalid voteskip limit, please try again using a number to signify the number of mehs.",
     "voteskipsetlimit": "\/me [@%%NAME%%] Voteskip limit set to %%LIMIT%%.",

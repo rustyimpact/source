@@ -490,7 +490,7 @@
           //make the bot join the queue
           joinQueue: function() {
 
-              API.moderateAddDJ(jungleBot.loggedInID);
+              API.moderateMoveDJ(jungleBot.loggedInID, 1);
 
               },
 
@@ -1068,7 +1068,7 @@
             },
             eventDjadvance: function(obj) {
 
-            if (!obj.dj) return jungleBot.userUtilities.joinQueue();
+            if (!obj.dj) jungleBot.userUtilities.joinQueue();
 
                 var blacklistSkip = setTimeout(function() {
                     var mid = obj.media.format + ':' + obj.media.cid;
@@ -1229,7 +1229,7 @@
             },
             eventWaitlistupdate: function(users) {
 
-               setTimeout(jungleBot.userUtilities.stopDJing(), 180000);
+               setTimeout(jungleBot.userUtilities.stopDJing(), 60000);
                 if (users.length < 50) {
                     if (jungleBot.room.queue.id.length > 0 && jungleBot.room.queueable) {
                         jungleBot.room.queueable = false;
