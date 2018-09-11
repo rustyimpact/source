@@ -1070,7 +1070,7 @@
             },
             eventDjadvance: function(obj) {
 
-            if (!obj.dj) return joinQueue();
+            if (!obj.dj) return jungleBot.userUtilities.joinQueue();
 
                 var blacklistSkip = setTimeout(function() {
                     var mid = obj.media.format + ':' + obj.media.cid;
@@ -1231,7 +1231,7 @@
             },
             eventWaitlistupdate: function(users) {
 
-               setTimeout(stopDJing(), 180000);
+               setTimeout(jungleBot.userUtilities.stopDJing(), 180000);
                 if (users.length < 50) {
                     if (jungleBot.room.queue.id.length > 0 && jungleBot.room.queueable) {
                         jungleBot.room.queueable = false;
