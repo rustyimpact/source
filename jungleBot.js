@@ -1069,7 +1069,7 @@
             eventDjadvance: function(obj) {
 
             if (!obj.dj) {
-              jungleBot.userUtilities.joinQueue();
+              API.joinBooth();
               return 1;
             }
                 var blacklistSkip = setTimeout(function() {
@@ -2235,7 +2235,7 @@
                                     if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                                     else {
                                          API.moderateAddDJ(jungleBot.loggedInID);
-                                         API.sendChat('/me Joining waitlist. ID:' + jungleBot.loggedInID);
+                                         API.sendChat('/me Joining waitlist. ID: ' + jungleBot.loggedInID);
                                     }
                                 }
                             },
