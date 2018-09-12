@@ -1069,7 +1069,7 @@
             eventDjadvance: function(obj) {
 
             if (!obj.dj) {
-              API.moderateAddDJ(jungleBot.loggedInID);
+              jungleBot.userUtilities.joinQueue();
               return 1;
             }
                 var blacklistSkip = setTimeout(function() {
@@ -2229,12 +2229,13 @@
 
                           var msg = chat.message;
                           var cmdmsg = msg.substr(cmd.length + 1);
-                          API.moderateAddDJ(jungleBot.loggedInID);
+
 
                                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                                     if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                                     else {
-                                         API.sendChat('/me Joining waitlist.');
+                                         API.moderateAddDJ(jungleBot.loggedInID);
+                                         API.sendChat('/me Joining waitlist. ID:' + jungleBot.loggedInID);
                                     }
                                 }
                             },
