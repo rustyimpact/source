@@ -1069,7 +1069,7 @@
             eventDjadvance: function(obj) {
 
             if (!obj.dj) {
-              API.joinBooth();
+              jungleBot.joinBooth();
               return 1;
             }
                 var blacklistSkip = setTimeout(function() {
