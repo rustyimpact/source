@@ -4038,9 +4038,7 @@
                         if (typeof user === 'boolean') return API.sendChat(subChat(jungleBot.chat.invaliduserspecified, {
                             name: chat.un
                         }));
-                        if (user.id === jungleBot.loggedInID) return API.sendChat(subChat(jungleBot.chat.addbotwaitlist, {
-                            name: chat.un
-                        }));
+                        
                         if (!isNaN(pos)) {
                             API.sendChat(subChat(jungleBot.chat.move, {
                                 name: chat.un
