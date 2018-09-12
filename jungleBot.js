@@ -287,7 +287,7 @@
   			strictTimeGuard: true,
   			maximumSongLength: 10,
   			autodisable: false,
-  			commandCooldown: 30,
+  			commandCooldown: 0,
   			usercommandsEnabled: true,
   			thorCommand: false,
   			thorCooldown: 1440,
@@ -316,7 +316,7 @@
   			fbLink: null,
   			youtubeLink: 'http://youtube.com/xqcow',
   			website: 'http://twitch.tv/xqcow',
-  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands", "Vote for the plug DJ MVP with !plugdjmvp :PogU:", "!rankings"],
+  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands", "Vote for the plug DJ MVP with !mvp @user :PogU:", "!rankings"],
   			messageInterval: 11,
   			songstats: false,
   			commandLiteral: '!',
@@ -2029,7 +2029,7 @@
                                       }
 
                               }
-                              else API.sendChat('/me @' + chat.un + ' Invalid user specified.');
+                              else API.sendChat('/me @' + chat.un + ' Invalid user specified. (vote with "!mvp @user")');
                             }
 
                         },
@@ -4038,7 +4038,7 @@
                         if (typeof user === 'boolean') return API.sendChat(subChat(jungleBot.chat.invaliduserspecified, {
                             name: chat.un
                         }));
-                        
+
                         if (!isNaN(pos)) {
                             API.sendChat(subChat(jungleBot.chat.move, {
                                 name: chat.un
