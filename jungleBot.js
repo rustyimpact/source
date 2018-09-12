@@ -1069,7 +1069,7 @@
             eventDjadvance: function(obj) {
 
             if (!obj.dj) {
-              jungleBot.joinBooth();
+              API.sendChat('!add ' jungleBot.userUtilities.lookupUserName(jungleBot.loggedInID))
               return 1;
             }
                 var blacklistSkip = setTimeout(function() {
