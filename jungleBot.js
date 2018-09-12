@@ -1460,7 +1460,7 @@
                     eventVoteupdate: $.proxy(this.eventVoteupdate, this),
                     eventCurateupdate: $.proxy(this.eventCurateupdate, this),
                     eventRoomscoreupdate: $.proxy(this.eventRoomscoreupdate, this),
-                    event  API.moderateAddDJ(jungleBot.loggedInID);vance: $.proxy(this.eventDjadvance, this),
+                    eventDjadvance: $.proxy(this.eventDjadvance, this),
                     //eventDjupdate: $.proxy(this.eventDjupdate, this),
                     eventWaitlistupdate: $.proxy(this.eventWaitlistupdate, this),
                     eventVoteskip: $.proxy(this.eventVoteskip, this),
@@ -2219,8 +2219,7 @@
                         }
                     },
 
-
-                    // chu say brug?
+                    // make bot join wl
 
                     joinwlCommand: {
                                 command: ['joinwl'],
@@ -2240,7 +2239,7 @@
                                 }
                             },
 
-                    // chu say brug?
+                    // dance
 
                     danceCommand: {
                                 command: ['dance', 'dancespam'],
