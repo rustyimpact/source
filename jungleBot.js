@@ -2450,7 +2450,7 @@
                       if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                       if (!jungleBot.commands.executable(this.rank, chat)) return void (0);
                       else {
-                        API.sendChat("AYAYA Clap");
+                        API.sendChat(":ayaya: :bttvclap:");
                       }
                     }
                   },
