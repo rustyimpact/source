@@ -2244,7 +2244,7 @@
 
                     danceCommand: {
                                 command: ['dance', 'dancespam'],
-                                rank: 'residentdj',
+                                rank: 'user',
                                 type: 'startsWith',
                                 functionality: function(chat, cmd) {
 
