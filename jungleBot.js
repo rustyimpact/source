@@ -1675,7 +1675,7 @@
 
 
             //Ban :xqcG:
-            banCommand: {
+            banuserCommand: {
                            command: 'banuser',
                            rank: 'bouncer',
                            type: 'startsWith',
@@ -2614,7 +2614,7 @@
                                  }
 },
 
-		
+
           		//END OF CUSTOM COMMANDS
 
 
