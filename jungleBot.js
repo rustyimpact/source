@@ -2584,8 +2584,23 @@
                   },
 
 
+            	  //New Rules Command (replaced the default command)
+                       junglerulesCommand: {
+                                 command: ['rules','info'],
+                                 rank: 'user',
+                                 type: 'startsWith',
+                                 functionality: function(chat, cmd) {
+                                   var msg = chat.message;
+                                   var cmdmsg = msg.substr(cmd.length + 1);
+                                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                     if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                     else {
+                                                API.sendChat('/me ' + cmdmsg + ' Please find the room rules here: http://bit.ly/xqcs-jungle');
+                                     }
+                                 }
+},
 
-
+		
           		//END OF CUSTOM COMMANDS
 
 
@@ -4270,21 +4285,7 @@
                 }
             },
 
-            rulesCommand: {
-                command: 'rules',
-                rank: 'user',
-                type: 'exact',
-                functionality: function(chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
-                    else {
-                        if (typeof jungleBot.settings.rulesLink === 'string')
-                            return API.sendChat(subChat(jungleBot.chat.roomrules, {
-                                link: jungleBot.settings.rulesLink
-                            }));
-                    }
-                }
-            },
+            rulesCommand: {},
 
             sessionstatsCommand: {
                 command: 'sessionstats',
