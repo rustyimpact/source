@@ -2545,7 +2545,7 @@
                             if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                             if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                             else {
-        	                       API.sendChat('/me ' + cmdmsg + ' To use emotes when you have RCS installed, type colons like :this: | Download RCS here: https://git.io/fN5eb#rcs-extension');
+        	                       API.sendChat('/me ' + cmdmsg + ' To use emotes when you have RCS installed, type colons like :this: | Get RCS here: https://git.io/fN5eb#rcs-extension');
                              }
                           }
                       },
