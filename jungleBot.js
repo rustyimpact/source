@@ -1674,9 +1674,9 @@
 
 
 
-            //Ban :xqcG:
+            //B& :xqcG:
             banuserCommand: {
-                           command: 'banuser',
+                           command: 'ban',
                            rank: 'bouncer',
                            type: 'startsWith',
                            functionality: function(chat, cmd) {
@@ -1700,20 +1700,7 @@
                            }
                        },
 
-                       //Fun, not real ban command
-                       banCommand: {
-                                      command: 'ban',
-                                      rank: 'user',
-                                      type: 'startsWith',
-                                      functionality: function(chat, cmd) {
-                                          if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-                                          if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
-                                          else {
-                                              var parameter = msg.substr(chat.message.length + 1);
-                                              jungleBot.sendChat('/me ' + chat.un + ' has banned ' + parameter + '.');
-                                          }
-                                      }
-                                  },
+
         //Infinite PogChamp works
 
                   pogcycleCommand: {
