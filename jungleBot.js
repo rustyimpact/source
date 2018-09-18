@@ -1031,7 +1031,7 @@
                             user.lastDC.position = user.lastKnownPosition;
                         }
                     }
-                    if jungleBot.room.users[i].id === "37147238" {
+                    if (jungleBot.room.users[i].id === "37147238") {
                       xqchere = true;
                     }
                     if (!xqchere) {
