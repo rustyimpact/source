@@ -1037,7 +1037,7 @@
                     if (!xqchere) {
                       API.sendChat("!toggleskip");
                       setTimeout(function(){ API.sendChat("!togglemotd");},500);
-                      setTimeout(function(){ API.sendChat("/me Streamer mode disabled."), 1000);
+                      setTimeout(function(){ API.sendChat("/me Streamer mode disabled.");}, 1000);
                     }
                 }
             },
