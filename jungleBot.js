@@ -972,7 +972,8 @@
                         index = i;
                     }
                     if jungleBot.room.users[i].id === "37147238" {
-                      jungleBot.sendChat("!toggleskip")
+                      jungleBot.sendChat("!toggleskip");
+                      jungleBot.sendChat("!togglemotd");
                     }
                 }
                 var greet = true;
@@ -1017,6 +1018,7 @@
             },
             eventUserleave: function(user) {
                 var lastDJ = API.getHistory()[0].user.id;
+                var xqchere = false;
                 for (var i = 0; i < jungleBot.room.users.length; i++) {
                     if (jungleBot.room.users[i].id === user.id) {
                         jungleBot.userUtilities.updateDC(jungleBot.room.users[i]);
@@ -1029,7 +1031,11 @@
                         }
                     }
                     if jungleBot.room.users[i].id === "37147238" {
-                      jungleBot.sendChat("!toggleskip")
+                      xqchere = true;
+                    }
+                    if (!xqchere) {
+                      jungleBot.sendChat("!toggleskip");
+                      jungleBot.sendChat("!togglemotd");
                     }
                 }
             },
