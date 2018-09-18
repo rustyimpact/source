@@ -973,7 +973,7 @@
                         known = true;
                         index = i;
                     }
-                    if (jungleBot.room.users[i].id === "37147238") {
+                    if (jungleBot.room.users[i].id == "37147238") {
                       jungleBot.room.xqchere = true;
                       API.sendChat("!toggleskip");
                       setTimeout(function() { API.sendChat("!togglemotd"); }, 500);
@@ -1035,7 +1035,7 @@
                     }
                     if (jungleBot.room.xqchere){
                       jungleBot.room.xqchere = false;
-                    if (jungleBot.room.users[i].id === "37147238") {
+                    if (jungleBot.room.users[i].id == "37147238") {
                       jungleBot.room.xqchere = true;
                     }
                     if (!jungleBot.room.xqchere) {
