@@ -973,12 +973,14 @@
                         known = true;
                         index = i;
                     }
-                    if (jungleBot.room.users[i].id == "37147238") {
+                    if (!xqchere){
+                    if (jungleBot.room.users[i].id == 37147238) {
                       jungleBot.room.xqchere = true;
                       API.sendChat("!toggleskip");
                       setTimeout(function() { API.sendChat("!togglemotd"); }, 500);
                       setTimeout(function() { API.sendChat("/me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped.");}, 1000);
                     }
+                  }
                 }
                 var greet = true;
                 var welcomeback = null;
