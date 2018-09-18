@@ -977,8 +977,7 @@
                     if (jungleBot.room.users[i].id == 37147238) {
                       jungleBot.room.xqchere = true;
                       API.sendChat("!toggleskip");
-                      setTimeout(function() { API.sendChat("!togglemotd"); }, 500);
-                      setTimeout(function() { API.sendChat("/me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped.");}, 1000);
+                      setTimeout(function() { API.sendChat("!motd /me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped.");}, 1000);
                     }
                   }
                 }
@@ -1034,19 +1033,24 @@
                             user.lastDC.time = null;
                             user.lastDC.position = user.lastKnownPosition;
                         }
+                      }
                     }
-                    if (jungleBot.room.xqchere){
+                    if (jungleBot.room.xqchere) {
                       jungleBot.room.xqchere = false;
-                    if (jungleBot.room.users[i].id == "37147238") {
-                      jungleBot.room.xqchere = true;
-                    }
-                    if (!jungleBot.room.xqchere) {
-                      API.sendChat("!toggleskip");
-                      setTimeout(function(){ API.sendChat("!togglemotd");},500);
-                      setTimeout(function(){ API.sendChat("/me Streamer mode disabled.");}, 1000);
-                    }
-                  }
+                      for (var i = 0; i < jungleBot.room.users.length; i++) {
+                        if (jungleBot.room.users[i].id == 37147238) {
+                          jungleBot.room.xqchere = true;
+                        }
+                      }
+                            if (!junglebot.room.xqchere){
+                            API.sendChat("!toggleskip");
+                            setTimeout(function(){ API.sendChat("!togglemotd");},500);
+                            setTimeout(function(){ API.sendChat("/me Streamer mode disabled.");}, 1000);
+                        }
+
+
                 }
+
             },
             eventVoteupdate: function(obj) {
                 for (var i = 0; i < jungleBot.room.users.length; i++) {
