@@ -973,7 +973,7 @@
                         known = true;
                         index = i;
                     }
-                    if (!xqchere){
+                    if (!jungleBot.room.xqchere){
                     if (jungleBot.room.users[i].id == 37147238) {
                       jungleBot.room.xqchere = true;
                       API.sendChat("!toggleskip");
