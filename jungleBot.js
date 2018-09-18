@@ -971,6 +971,9 @@
                         known = true;
                         index = i;
                     }
+                    if jungleBot.room.users[i].id === "37147238" {
+                      jungleBot.sendChat("!toggleskip")
+                    }
                 }
                 var greet = true;
                 var welcomeback = null;
@@ -1024,6 +1027,9 @@
                             user.lastDC.time = null;
                             user.lastDC.position = user.lastKnownPosition;
                         }
+                    }
+                    if jungleBot.room.users[i].id === "37147238" {
+                      jungleBot.sendChat("!toggleskip")
                     }
                 }
             },
