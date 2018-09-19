@@ -313,6 +313,7 @@
   			welcome: false,
   			opLink: null,
   			rulesLink: 'http://bit.ly/xqcs-jungle',
+			emotesLink: 'http://bit.ly/custom-rcs-emotes',
   			themeLink: null,
   			fbLink: null,
   			youtubeLink: 'http://youtube.com/xqcow',
@@ -2594,7 +2595,24 @@
                       }
                     }
                   },
-
+		
+		   // Emotes Link
+		  emotesCommand: {
+	 	   command: 'emotes',
+	           rank: 'user',
+		   type: 'exact',
+		   functionality: function (chat, cmd) {
+		      if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                      if (!jungleBot.commands.executable(this.rank, chat)) return void (0);
+                      else {
+                        API.sendChat("/me RCS Emote List: bit.ly/custom-rcs-emotes");
+                      }
+                    }
+                  },   
+			   
+			   
+			   
+			   
                    // Discord link
                   discordCommand: {
                     command: 'discord',
