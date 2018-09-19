@@ -783,7 +783,7 @@
                                         API.sendChat(subChat(jungleBot.chat.warning1, {
                                             name: name,
                                             time: time
-                                        }));
+                                        }), 120);
                                         user.afkWarningCount = 3;
                                         user.afkCountdown = setTimeout(function(userToChange) {
                                             userToChange.afkWarningCount = 1;
@@ -791,7 +791,7 @@
                                     } else if (warncount === 1) {
                                         API.sendChat(subChat(jungleBot.chat.warning2, {
                                             name: name
-                                        }));
+                                        }), 100);
                                         user.afkWarningCount = 3;
                                         user.afkCountdown = setTimeout(function(userToChange) {
                                             userToChange.afkWarningCount = 2;
