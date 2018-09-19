@@ -972,15 +972,10 @@
                     if (jungleBot.room.users[i].id === user.id) {
                         known = true;
                         index = i;
+                      }
                     }
-                    if (!jungleBot.room.xqchere){
-                    if (jungleBot.room.users[i].id == 37147238) {
-                      jungleBot.room.xqchere = true;
-                      API.sendChat("!toggleskip");
-                      setTimeout(function() { API.sendChat("!motd /me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped.");}, 1000);
-                    }
-                  }
-                }
+
+
                 var greet = true;
                 var welcomeback = null;
                 if (known) {
@@ -1020,7 +1015,13 @@
                             }));
                         }, 1 * 1000, user);
                 }
+                if (user.id == 37147238) {
+                API.sendChat("!toggleskip");
+                setTimeout(function() { API.sendChat("!motd 3");}, 500);
+                setTimeout(function() { API.sendChat("!motd /me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped.");}, 1000);
+              }
             },
+
             eventUserleave: function(user) {
                 var lastDJ = API.getHistory()[0].user.id;
                 for (var i = 0; i < jungleBot.room.users.length; i++) {
@@ -1035,21 +1036,14 @@
                         }
                       }
                     }
-                    if (jungleBot.room.xqchere) {
-                      jungleBot.room.xqchere = false;
-                      for (var i = 0; i < jungleBot.room.users.length; i++) {
-                        if (jungleBot.room.users[i].id == 37147238) {
-                          jungleBot.room.xqchere = true;
-                        }
-                      }
-                            if (!junglebot.room.xqchere){
+                            if (user.id == 37147238) {
                             API.sendChat("!toggleskip");
                             setTimeout(function(){ API.sendChat("!togglemotd");},500);
                             setTimeout(function(){ API.sendChat("/me Streamer mode disabled.");}, 1000);
                         }
 
 
-                }
+
 
             },
             eventVoteupdate: function(obj) {
@@ -2500,6 +2494,7 @@
                     command: 'nightcore',
                     rank: 'user',
                     type: 'exact',
+
                     functionality: function (chat, cmd) {
                       if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                       if (!jungleBot.commands.executable(this.rank, chat)) return void (0);
