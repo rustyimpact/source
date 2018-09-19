@@ -317,7 +317,7 @@
   			fbLink: null,
   			youtubeLink: 'http://youtube.com/xqcow',
   			website: 'http://twitch.tv/xqcow',
-  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands", "Vote for the plug DJ MVP with !mvp @user :PogU:", "!rankings"],
+  			intervalMessages: ["The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj", "Connect with xQc: Stream: http://twitch.tv/xqcow Twitter: https://twitter.com/xqc YouTube: http://yoube.com/xqcows  Reddit: https://www.reddit.com/r/xqcow Discord: http://discord.gg/xqcow (you don't have to be a sub)", "FAQ for new users on the channel: http://bit.ly/jungle-dj-help", "A list of all our custom RCS emotes can be found here: http://bit.ly/custom-rcs-emotes", "A list of commands for the bot can be found here: https://git.io/fN5eb#bot-commands", "Vote for the plug DJ MVP with !mvp @user :PogU:", "!rankings"],
   			messageInterval: 11,
   			songstats: false,
   			commandLiteral: '!',
