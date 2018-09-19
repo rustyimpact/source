@@ -326,7 +326,6 @@
   						}
         },
         room: {
-            xqchere: false,
             name: null,
             chatMessages: [],
             users: [],
