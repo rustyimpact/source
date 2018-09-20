@@ -1772,10 +1772,10 @@
                                  }
                              },
 
-            //pepepls
+            //pepepls in high res
 
                        pepeplsCommand: {
-                                 command: ['pepepls', 'pls'],
+                                 command: ['pepehd'],
                                  rank: 'user',
                                  type: 'startsWith',
                                  functionality: function(chat, cmd) {
@@ -1790,6 +1790,25 @@
                                      }
                                  }
                              },
+
+                             //normal pepepls
+
+                                        pepeplsCommand: {
+                                                  command: ['pepepls'],
+                                                  rank: 'user',
+                                                  type: 'startsWith',
+                                                  functionality: function(chat, cmd) {
+
+                                                    var msg = chat.message;
+                                                    var cmdmsg = msg.substr(cmd.length + 1);
+
+                                                      if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                                      if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                                      else {
+                                                                 API.sendChat(cmdmsg + ' https://i.imgur.com/y78I1Ew.gif');
+                                                      }
+                                                  }
+                                              },
 
                              //monkapls
 
