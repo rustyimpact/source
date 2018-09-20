@@ -2935,7 +2935,7 @@
             },
 
             blacklistCommand: {
-                command: ['blacklist', 'bl'],
+                command: ['blacklist'],
                 rank: 'bouncer',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
