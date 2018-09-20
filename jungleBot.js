@@ -1774,7 +1774,7 @@
 
             //pepepls in high res
 
-                       pepeplsCommand: {
+                       pepeplshdCommand: {
                                  command: ['pepehd'],
                                  rank: 'user',
                                  type: 'startsWith',
