@@ -2271,7 +2271,7 @@
                                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                                     if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                                     else {
-                                         API.sendChat(cmdmsg + ' Find a list of our custom RCS emotes here: http://bit.ly/xqc-rcs-emotes');
+                                         API.sendChat(cmdmsg + ' Find a list of RCS emotes here: https://git.io/fN5eb#rcs-emotes');
                                     }
                                 }
                             },
@@ -2465,7 +2465,7 @@
                       if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                       if (!jungleBot.commands.executable(this.rank, chat)) return void (0);
                       else {
-                        API.sendChat("ResidentSleeper Clap");
+                        API.sendChat(":residentsleeper: :bttvclap:");
                       }
                     }
                   },
@@ -2570,7 +2570,7 @@
                             if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                             if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                             else {
-        	                       API.sendChat('/me ' + cmdmsg + ' The RCS extension is an enhancement for plug.dj. Install it so you can see emotes and our custom channel theme! https://rcs.radiant.dj/');
+        	                       API.sendChat('/me ' + cmdmsg + ' The RCS extension is an enhancement for plug.dj. Install it so you can see emotes, our custom channel theme and a bunch of other features! https://git.io/fN5eb#rcs-extension');
                              }
                           }
                       },
@@ -2590,25 +2590,6 @@
                             if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                             else {
         	                       API.sendChat('/me ' + cmdmsg + ' To use emotes when you have RCS installed, type colons like :this: | Get RCS here: https://git.io/fN5eb#rcs-extension');
-                             }
-                          }
-                      },
-
-            // GTE Help
-
-        	gteCommand: {
-                        command: ['gte','downloadgte'],
-                        rank: 'user',
-                        type: 'startsWith',
-                        functionality: function(chat, cmd) {
-
-        					var msg = chat.message;
-        					var cmdmsg = msg.substr(cmd.length + 1);
-
-                            if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-                            if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
-                            else {
-        	                       API.sendChat('/me ' + cmdmsg + ' The GTE extension lets you see twitch emotes from any channel everywhere on the web: https://git.io/fN5eb#gte-extension');
                              }
                           }
                       },
