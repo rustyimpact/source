@@ -1791,6 +1791,24 @@
                                  }
                              },
 
+                             //Jebaited
+
+                                        jebaitedCommand: {
+                                                  command: ['jebaited', 'jebait', 'jebaiteds'],
+                                                  rank: 'user',
+                                                  type: 'startsWith',
+                                                  functionality: function(chat, cmd) {
+
+                                                    var msg = chat.message;
+                                                    var cmdmsg = msg.substr(cmd.length + 1);
+
+                                                      if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                                      if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                                      else {
+                                                                 API.sendChat(cmdmsg + ' https://i.imgur.com/X5UMyoJ.gif');
+                                                      }
+                                                  }
+                                              },
                              //normal pepepls
 
                                         pepeplsCommand: {
