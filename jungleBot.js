@@ -1015,7 +1015,7 @@
                         }, 1 * 1000, user);
                 }
                 if (user.id == 37147238) {
-                API.sendChat("!toggleskip");
+                API.sendChat("!smon");
                 setTimeout(function() { API.sendChat("!motd 3");}, 500);
                 setTimeout(function() { API.sendChat("!motd /me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped.");}, 1000);
               }
@@ -1036,7 +1036,7 @@
                       }
                     }
                             if (user.id == 37147238) {
-                            API.sendChat("!toggleskip");
+                            API.sendChat("!smoff");
                             setTimeout(function(){ API.sendChat("!togglemotd");},500);
                             setTimeout(function(){ API.sendChat("/me Streamer mode disabled.");}, 1000);
                         }
@@ -1791,10 +1791,11 @@
                                  }
                              },
 
+
                              //Jebaited
 
                                         jebaitedCommand: {
-                                                  command: ['jebaited', 'jebait', 'jebaiteds'],
+                                                  command: ['jebaited', 'jebait', 'jebaiteds', 'baited'],
                                                   rank: 'user',
                                                   type: 'startsWith',
                                                   functionality: function(chat, cmd) {
@@ -1802,13 +1803,13 @@
                                                     var msg = chat.message;
                                                     var cmdmsg = msg.substr(cmd.length + 1);
 
-                                                      if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                                                       if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                                                       else {
                                                                  API.sendChat(cmdmsg + ' https://i.imgur.com/X5UMyoJ.gif');
                                                       }
                                                   }
                                               },
+
                              //normal pepepls
 
                                         pepeplsCommand: {
