@@ -2279,9 +2279,9 @@
                     // Move bouncer bot to 1 to play a song
 
                     queuesongCommand: {
-                                command: ['queuesong'],
+                                command: ['playsong'],
                                 rank: 'bouncer',
-                                type: 'exact',
+                                type: 'startsWith',
                                 functionality: function(chat, cmd) {
 
 
