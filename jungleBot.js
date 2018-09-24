@@ -2287,7 +2287,7 @@
 
                                     if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                                     else {
-                                         API.sendChat('!move @BouncerBot2 1');
+                                         API.sendChat('!move @BouncerBot 2 1');
                                     }
                                 }
                             },
