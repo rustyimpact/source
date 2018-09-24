@@ -2276,6 +2276,22 @@
                         }
                     },
 
+                    // Move bouncer bot to 1 to play a song
+
+                    queuesongCommand: {
+                                command: ['queuesong'],
+                                rank: 'bouncer',
+                                type: 'exact',
+                                functionality: function(chat, cmd) {
+
+
+                                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                    else {
+                                         API.sendChat('!move @BouncerBot2 1');
+                                    }
+                                }
+                            },
+
                     // emotelist for custom emotes
 
                     emotelistCommand: {
