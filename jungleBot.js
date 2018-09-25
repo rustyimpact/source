@@ -1017,7 +1017,7 @@
                 if (user.id == 37147238) {
                 API.sendChat("!smon");
                 setTimeout(function() { API.sendChat("!motd 3");}, 500);
-                setTimeout(function() { API.sendChat("!motd /me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped.");}, 1000);
+                setTimeout(function() { API.sendChat("!motd /me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped if it's not whitelisted. Whitelist youtube songs with !check <link>.");}, 1000);
               }
             },
 
@@ -2485,6 +2485,8 @@
                             dataType: 'json',
                             contentType: 'application/json'
                         });
+
+                        API.sendChat("/woot");
 
                         API.sendChat(":MrDestructoid: :bttvClap:");
                       }
@@ -4591,7 +4593,7 @@
                         */
 
                         // This is a more efficient solution
-                        if (msg.length > 250) {
+                        if (msg.length > 246) {
                             var split = msg.match(/.{1,242}/g);
                             for (var i = 0; i < split.length; i++) {
                                 var func = function(index) {
@@ -4602,7 +4604,8 @@
                                 func(i);
                             }
                         } else {
-                            return API.sendChat(msg);
+
+                            return API.sendChat('/me' + msg);
                         }
                     }
                 }
