@@ -2018,7 +2018,7 @@
 
             	sayCommand: {
                         command: ['say'],
-                        rank: 'manager',
+                        rank: 'bouncer',
                         type: 'startsWith',
                         functionality: function(chat, cmd) {
 
