@@ -244,7 +244,7 @@
 
     var botCreator = 'Yemasthui';
     var botMaintainer = 'Benzi';
-    var botCreatorIDs = [3851534, 4105209, 3941421, 37218461];
+    var botCreatorIDs = [3851534, 4105209, 37252378, 3941421, 37218461];
 
     var jungleBot = {
         version: '3.0',
@@ -1016,7 +1016,7 @@
                 }
                 if (user.id == 37147238) {
                 API.sendChat("!smon");
-                setTimeout(function() { API.sendChat("!motd 3");}, 500);
+                setTimeout(function() { API.sendChat("!motd 2");}, 500);
                 setTimeout(function() { API.sendChat("!motd /me Streamer mode enabled. Make sure your song is on YouTube, NOT SoundCloud and has more than 10k views or it will be skipped if it's not whitelisted. Whitelist youtube songs with !check <link>.");}, 1000);
               }
             },
