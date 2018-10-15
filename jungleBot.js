@@ -244,7 +244,7 @@
 
     var botCreator = 'Yemasthui';
     var botMaintainer = 'Benzi';
-    var botCreatorIDs = [3851534, 4105209, 37252378, 3941421, 37218461];
+    var botCreatorIDs = [3851534, 4105209, 3941421, 37218461];
 
     var jungleBot = {
         version: '3.0',
@@ -2275,6 +2275,25 @@
                             }
                         }
                     },
+
+                    // chu say brug?
+
+                    snoopCommand: {
+                                command: ['snoop'],
+                                rank: 'user',
+                                type: 'startsWith',
+                                functionality: function(chat, cmd) {
+
+                          var msg = chat.message;
+                          var cmdmsg = msg.substr(cmd.length + 1);
+
+                                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                    else {
+                                         API.sendChat(cmdmsg + ' https://i.imgur.com/e8Zo7dO.gif');
+                                    }
+                                }
+                            },
 
                     // Move bouncer bot to 1 to play a song
 
