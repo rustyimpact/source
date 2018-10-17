@@ -1709,8 +1709,9 @@
                                    var name = msg.substr(cmd.length + 1);
                                    var id = jungleBot.userUtilities.getID(name);
                                    if (id == false) return API.sendChat(subChat(jungleBot.chat.invaliduserspecified, {name: chat.un}));
+                                   API.sendChat("banning id \"" + id + "\"");
                                    API.moderateBanUser(id, 1, API.BAN.PERMA);
-                                   API.sendChat("/ban " + id + " f");
+                                   API.sendChat("/ban permanent " + id );
                                }
                            }
                        },
