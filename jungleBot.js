@@ -1694,7 +1694,7 @@
 
 
             //B& :xqcG:
-            banuserCommand: {
+            banCommand: {
                            command: 'ban',
                            rank: 'bouncer',
                            type: 'startsWith',
@@ -1707,7 +1707,7 @@
                                        name: chat.un
                                    }));
                                    var name = msg.substr(cmd.length + 2);
-                                   var user = jungleBot.userUtilities.lookupUserName(name);
+                                   var user = jungleBot.userUtilities.getID(name);
                                    if (typeof user === 'boolean') return API.sendChat(subChat(jungleBot.chat.invaliduserspecified, {
                                        name: chat.un
                                    }));
@@ -4889,7 +4889,7 @@
 
             unbanCommand: {
                 command: 'unban',
-                rank: 'manager',
+                rank: 'unban',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
