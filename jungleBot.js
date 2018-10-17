@@ -1974,8 +1974,6 @@
                 rank: 'user',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-
 
                         var msg = chat.message;
                         var name;
@@ -1989,6 +1987,9 @@
                     if (id) {
                       API.sendChat('/me @' + chat.un + ' The specified user\'s  ID is "' + id + '".');
                     }
+                    else {
+                      API.sendChat('/me @' + chat.un + ' User not found.');
+                       }
 
                       }
                    },
