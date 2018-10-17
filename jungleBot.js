@@ -476,7 +476,7 @@
 
           //Find user ID without them necessarily being in the room still
           getID: function(name) {
-                      var id;
+                      var id = false;
                       var users = jungleBot.room.users;
                       var len = users.length;
                       for (var i = 0; i < len; ++i) {
@@ -484,6 +484,7 @@
                               var id = users[i].id;
                           }
                       }
+                      return id;
 
               },
 
