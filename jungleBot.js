@@ -1706,15 +1706,12 @@
                                    if (msg.length === cmd.length) return API.sendChat(subChat(jungleBot.chat.nouserspecified, {
                                        name: chat.un
                                    }));
-                                   var name = msg.substr(cmd.length + 2);
-                                   var user = jungleBot.userUtilities.getID(name);
-                                   if (typeof user === 'boolean') return API.sendChat(subChat(jungleBot.chat.invaliduserspecified, {
+                                   var name = msg.substr(cmd.length + 1);
+                                   var id = jungleBot.userUtilities.getID(name);
+                                   if (id == false) return API.sendChat(subChat(jungleBot.chat.invaliduserspecified, {
                                        name: chat.un
                                    }));
-                                   var permFrom = jungleBot.userUtilities.getPermission(chat.uid);
-                                   var permUser = jungleBot.userUtilities.getPermission(user.id);
-                                   if (permUser >= permFrom) return void(0);
-                                   API.moderateBanUser(user.id, 1, API.BAN.PERMA);
+                                   API.moderateBanUser(id, 1, API.BAN.PERMA);
                                }
                            }
                        },
