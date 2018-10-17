@@ -1975,23 +1975,20 @@
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
-                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
-                    else {
+
+
                         var msg = chat.message;
                         var name;
                         if (msg.length === cmd.length) name = chat.un;
                         else {
                             name = msg.substr(cmd.length + 1);
                         }
-                    }
+
                     var id = jungleBot.userUtilities.getID(name);
 
                     if (id) {
                       API.sendChat('/me @' + chat.un + ' The specified user\'s  ID is "' + id + '".');
                     }
-                    else {
-                      API.sendChat('/me @' + chat.un + ' Invalid user specified.');
-                       }
 
                       }
                    },
