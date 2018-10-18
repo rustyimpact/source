@@ -2272,7 +2272,26 @@
                         }
                     },
 
-                    // chu say brug?
+                    // yust a memer FeelsStrongMan
+
+                    rainmanCommand: {
+                                command: ['rainman', 'badman', 'feelsrain', 'rainy'],
+                                rank: 'user',
+                                type: 'startsWith',
+                                functionality: function(chat, cmd) {
+
+                          var msg = chat.message;
+                          var cmdmsg = msg.substr(cmd.length + 1);
+
+                                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                    else {
+                                         API.sendChat("ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ  :FeelsBadMan: ☂ ヽ｀ヽ｀、ヽ");
+                                    }
+                                }
+                            },
+
+                    // snoop or ban
 
                     snoopCommand: {
                                 command: ['snoop'],
