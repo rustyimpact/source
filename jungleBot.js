@@ -2272,6 +2272,25 @@
                         }
                     },
 
+                    // please go on friend
+
+                  	effectCommand: {
+                                command: ['effect', 'drink', 'effectdrink'],
+                                rank: 'residentdj',
+                                type: 'startsWith',
+                                functionality: function(chat, cmd) {
+
+                					var msg = chat.message;
+                					var cmdmsg = msg.substr(cmd.length + 1);
+
+                                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                    if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                    else {
+                	                       API.sendChat(cmdmsg + ' https://i.imgur.com/X72KAZD.jpg');
+                                    }
+                                }
+                            },
+
                     // yust a memer FeelsStrongMan
 
                     rainmanCommand: {
@@ -2286,7 +2305,7 @@
                                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                                     if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
                                     else {
-                                         API.sendChat("ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ  :FeelsBadMan: ☂ ヽ｀ヽ｀、ヽ");
+                                         API.sendChat("/me ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ｀ヽ｀、ヽヽ  :FeelsBadMan: ☂ ヽ｀ヽ｀、ヽ");
                                     }
                                 }
                             },
