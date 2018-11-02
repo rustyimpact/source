@@ -2272,11 +2272,11 @@
                         }
                     },
 
-                    // please go on friend
+                    // take a sip
 
                   	effectCommand: {
                                 command: ['effect', 'drink', 'effectdrink', 'sip', 'effectsip'],
-                                rank: 'residentdj',
+                                rank: 'user',
                                 type: 'startsWith',
                                 functionality: function(chat, cmd) {
 
@@ -2290,6 +2290,24 @@
                                     }
                                 }
                             },
+                            // plspepe
+
+                            grootCommand: {
+                                        command: ['jingle', 'jangle', 'grootpls', 'groot'],
+                                        rank: 'user',
+                                        type: 'startsWith',
+                                        functionality: function(chat, cmd) {
+
+                                  var msg = chat.message;
+                                  var cmdmsg = msg.substr(cmd.length + 1);
+
+                                            if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
+                                            if (!jungleBot.commands.executable(this.rank, chat)) return void(0);
+                                            else {
+                                                 API.sendChat(cmdmsg + ' https://i.imgur.com/5T9gOUf.gif');
+                                            }
+                                        }
+                                    },
 
                     // yust a memer FeelsStrongMan
 
