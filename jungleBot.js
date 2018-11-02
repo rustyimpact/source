@@ -2275,7 +2275,7 @@
                     // please go on friend
 
                   	effectCommand: {
-                                command: ['effect', 'drink', 'effectdrink'],
+                                command: ['effect', 'drink', 'effectdrink', 'sip', 'effectsip'],
                                 rank: 'residentdj',
                                 type: 'startsWith',
                                 functionality: function(chat, cmd) {
